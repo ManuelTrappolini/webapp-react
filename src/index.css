@@ -5,6 +5,10 @@ header {
 
 }
 
+main {
+  background-color: lightgray;
+}
+
 footer {
 
   background-color: black;

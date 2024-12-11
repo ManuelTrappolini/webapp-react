@@ -10,8 +10,8 @@ export default function MovieCard({ movie }) {
                 <h5>By {movie.director}</h5>
                 <h5>Year: {movie.year}</h5>
                 <h5>Genre: {movie.genre} </h5>
-                <p className="description">Description: {movie.plot}</p>
-                <Link to={`/movie/${movie.id}`}><button className="btn btn-primary">Click here</button></Link>
+                <p className="description"><strong>Description:</strong> {movie.plot}</p>
+                <Link to={`/movies/${movie.id}`}><button className="btn btn-primary">Click Me</button></Link>
 
             </div>
         </div>
