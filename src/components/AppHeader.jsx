@@ -1,10 +1,10 @@
-
+import { Link } from "react-router-dom"
 
 export default function AppHeader() {
 
     return (
         <header>
-            <h1 className="container">Bool Movies</h1>
+            <Link className="text-decoration-none" to='/'>  <h1 className="text-decoration-none text-white">Bool Movies</h1></Link>
         </header>
     )
 }

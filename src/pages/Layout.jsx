@@ -7,7 +7,9 @@ export default function Layout() {
     return (
         <>
             <AppHeader></AppHeader>
-            <Outlet></Outlet>
+            <main className="container min-vh-100">
+                <Outlet></Outlet>
+            </main>
             <AppFooter />
         </>
     )
