@@ -72,7 +72,7 @@ export default function SingleMovie() {
     return (
         <div className="Reviews">
             <div className="container">
-                <h2 className="p-4">Reviews</h2>
+                <h2 className="p-4 text-center">Reviews</h2>
 
                 {
                     reviews.map(review => <ReviewCard key={review.id} review={review} />)

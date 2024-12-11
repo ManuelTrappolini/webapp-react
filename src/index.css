@@ -41,3 +41,8 @@ footer {
 .description {
   font-size: 1.2rem;
 }
+
+.click-me {
+  color: black;
+  font-weight: 700;
+}

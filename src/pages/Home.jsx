@@ -76,7 +76,7 @@ export default function HomePage() {
     return (
         <div className="homepage">
             <div className="container">
-                <h2 className="p-4">Home Page</h2>
+                <h2 className="p-4 text-center">Home Page</h2>
 
                 {
                     movies.map(movie => <MovieCard key={movie.id} movie={movie} />)

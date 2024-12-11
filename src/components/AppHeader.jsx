@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export default function AppHeader() {
 
     return (
         <header>
-            <Link className="text-decoration-none" to='/'>  <img src='./images/boolmovies.png' alt="" /></Link>
+            <NavLink className="text-decoration-none" to='/'>  <img src='./images/boolmovies.png' alt="" /></NavLink>
         </header>
     )
 }

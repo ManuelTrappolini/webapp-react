@@ -11,7 +11,7 @@ export default function MovieCard({ movie }) {
                 <p className="description"><strong>Year:</strong> {movie.year}</p>
                 <p className="description"><strong>Genre:</strong> {movie.genre} </p>
                 <p className="description"><strong>Description:</strong> {movie.plot}</p>
-                <Link to={`/movies/${movie.id}`}><button className="btn btn-warning"><span className="font-weight-bold">Click Me</span></button></Link>
+                <Link to={`/movies/${movie.id}`}><button className="btn btn-danger"><span className="click-me">Click Me</span></button></Link>
 
             </div>
         </div >
