@@ -1,19 +1,40 @@
+* {
+  font-style: italic;
+}
+
 header {
   background-color: black;
   color: white;
-  height: 100px;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
-main {
-  background-color: lightgray;
+.card-body {
+  background-color: rgb(176, 176, 206);
+  color: white;
 }
 
 footer {
 
   background-color: black;
   color: white;
-  height: 100px;
+  height: 170px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  h3 {
+    color: red;
+  }
 
 }
 
