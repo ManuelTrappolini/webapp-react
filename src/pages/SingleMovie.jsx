@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import ReviewCard from "../components/Cards/ReviewsCard"
-
+import Banner from "../components/Banner"
 export default function SingleMovie() {
 
     const { id } = useParams()
@@ -70,17 +70,19 @@ export default function SingleMovie() {
 
 
     return (
-        <div className="Reviews">
-            <div className="container">
-                <h2 className="p-4 text-center">Reviews</h2>
+        <>
+            <Banner title="Reviews" subtitle="The Best Community of Movies in the World" />
+            <div className="Reviews">
+                <div className="container">
 
-                {
-                    reviews.map(review => <ReviewCard key={review.id} review={review} />)
-                }
 
+                    {
+                        reviews.map(review => <ReviewCard key={review.id} review={review} />)
+                    }
+
+                </div>
             </div>
-        </div>
-
+        </>
     )
 
 }

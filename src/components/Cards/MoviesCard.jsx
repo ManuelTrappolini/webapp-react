@@ -8,9 +8,9 @@ export default function MovieCard({ movie }) {
             <div className="card-body">
                 <h3>{movie.title}</h3>
                 <h5>By {movie.director}</h5>
-                <p className="description"><strong>Year:</strong> {movie.year}</p>
+                <p className="description"><strong>Year:</strong> {movie.release_year}</p>
                 <p className="description"><strong>Genre:</strong> {movie.genre} </p>
-                <p className="description"><strong>Description:</strong> {movie.plot}</p>
+                <p className="description"><strong>Description:</strong> {movie.abstract}</p>
                 <Link to={`/movies/${movie.id}`}><button className="btn btn-danger"><span className="click-me">Click Me</span></button></Link>
 
             </div>
