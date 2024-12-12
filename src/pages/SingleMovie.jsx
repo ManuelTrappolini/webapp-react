@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom"
 import ReviewCard from "../components/Cards/ReviewsCard"
 import Banner from "../components/Banner"
+import { useState, useEffect } from "react"
+
+
 export default function SingleMovie() {
 
     const { id } = useParams()
 
-    const reviews = [
+    /* const reviews = [
         {
             "id": 1,
             "user": "Alice",
@@ -66,19 +69,41 @@ export default function SingleMovie() {
             "rating": 4.5,
             "review": "Un epico viaggio di vendetta e onore. Russell Crowe dà una performance potente e la regia di Ridley Scott cattura magnificamente l'epoca romana. Un film che coinvolge e appassiona."
         }
-    ]
+    ] */
+    const [movie, setMovie] = useState(null)
+
+
+    function fetchData(api_movies_url = `http://localhost:3002/movies/${id}`) {
+        fetch(api_movies_url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                setMovie(data)
+            })
+    }
+
+    useEffect(fetchData, [])
+
 
 
     return (
         <>
-            <Banner title="Reviews" subtitle="The Best Community of Movies in the World" />
+            {movie && (
+                <Banner
+                    title={movie.title}
+                    subtitle={'By ' + movie.director}
+                    leadtext={movie.abstract}
+                />
+            )}
             <div className="Reviews">
                 <div className="container">
 
 
-                    {
-                        reviews.map(review => <ReviewCard key={review.id} review={review} />)
-                    }
+                    {movie && movie.reviews && movie.reviews.length > 0 ? (
+                        movie.reviews.map(review => <ReviewCard key={review.id} review={review} />)
+                    ) : (
+                        <p>No reviews available.</p>)}
 
                 </div>
             </div>

@@ -81,6 +81,7 @@ export default function HomePage() {
         fetch(api_movies_url)
             .then(res => res.json())
             .then(data => {
+
                 console.log(data);
                 setMovies(data.movies)
             })
