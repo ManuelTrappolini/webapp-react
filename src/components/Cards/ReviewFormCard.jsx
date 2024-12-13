@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { useParams } from "react-router-dom"
 
 
 export default function ReviewFormCard({ movie_id }) {
@@ -15,13 +15,14 @@ export default function ReviewFormCard({ movie_id }) {
         e.preventDefault()
 
 
-        if (name.length < 5 || review.length < 20 || rating == 0) {
-            setErrorMessage(('Please fill all field form'))
+        if (name.length < 5 || review.length < 5 || rating == 0) {
+            setErrorMessage('Please fill all fields correctly')
+            return;
         }
 
         const formData = {
             name,
-            review,
+            text: review,
             vote: rating
         }
 

@@ -98,7 +98,7 @@ export default function SingleMovie() {
                 />
             )}
 
-            <ReviewFormCard />
+            <ReviewFormCard movie_id={id} />
             <div className="Reviews">
                 <div className="container">
 
