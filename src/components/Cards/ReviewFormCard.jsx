@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+
 
 
 export default function ReviewFormCard({ movie_id }) {
@@ -9,10 +9,10 @@ export default function ReviewFormCard({ movie_id }) {
     const [review, setReview] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
     const [success, setSuccess] = useState(null)
-
+    const [reviews, setReviews] = useState([]);
 
     function HandleFormSubmit(e) {
-        e.preventDefault()
+
 
 
         if (name.length < 5 || review.length < 5 || rating == 0) {
