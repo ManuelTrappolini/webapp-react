@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import ReviewCard from "../components/Cards/ReviewsCard"
 import Banner from "../components/Banner"
 import { useState, useEffect } from "react"
+import ReviewFormCard from "../components/Cards/ReviewFormCard"
 
 
 export default function SingleMovie() {
@@ -71,7 +72,7 @@ export default function SingleMovie() {
         }
     ] */
     const [movie, setMovie] = useState(null)
-
+    const [success, setSuccess] = useState(null)
 
     function fetchData(api_movies_url = `http://localhost:3002/movies/${id}`) {
         fetch(api_movies_url)
@@ -83,7 +84,7 @@ export default function SingleMovie() {
             })
     }
 
-    useEffect(fetchData, [])
+    useEffect(fetchData, [success])
 
 
 
@@ -96,6 +97,8 @@ export default function SingleMovie() {
                     leadtext={movie.abstract}
                 />
             )}
+
+            <ReviewFormCard />
             <div className="Reviews">
                 <div className="container">
 
