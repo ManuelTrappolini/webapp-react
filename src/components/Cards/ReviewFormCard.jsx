@@ -9,7 +9,7 @@ export default function ReviewFormCard({ movie_id }) {
     const [review, setReview] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
     const [success, setSuccess] = useState(null)
-    const [reviews, setReviews] = useState([]);
+
 
     function HandleFormSubmit(e) {
 
