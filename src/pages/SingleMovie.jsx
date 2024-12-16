@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom"
 import ReviewCard from "../components/Cards/ReviewsCard"
 import Banner from "../components/Banner"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import ReviewFormCard from "../components/Cards/ReviewFormCard"
-
+import GlobalContext from "../context/GlobalContext"
+import Loader from '../components/Loader'
 
 export default function SingleMovie() {
 
     const { id } = useParams()
+    const { loading, setLoading } = useContext(GlobalContext)
 
     /* const reviews = [
         {
@@ -75,12 +77,16 @@ export default function SingleMovie() {
     const [success, setSuccess] = useState(null)
 
     function fetchData(api_movies_url = `http://localhost:3002/movies/${id}`) {
+        setLoading(true)
+
         fetch(api_movies_url)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
 
                 setMovie(data)
+
+                setLoading(false)
             })
     }
 
@@ -90,26 +96,31 @@ export default function SingleMovie() {
 
     return (
         <>
-            {movie && (
-                <Banner
-                    title={movie.title}
-                    subtitle={'By ' + movie.director}
-                    leadtext={movie.abstract}
-                />
+            {loading ? <Loader /> : (
+                <>
+                    {movie && (
+                        <Banner
+                            title={movie.title}
+                            subtitle={'By ' + movie.director}
+                            leadtext={movie.abstract}
+                        />
+                    )}
+
+                    <ReviewFormCard movie_id={id} />
+                    <div className="Reviews">
+                        <div className="container">
+
+
+                            {movie && movie.reviews && movie.reviews.length > 0 ? (
+                                movie.reviews.map(review => <ReviewCard key={review.id} review={review} />)
+                            ) : (
+                                <p>No reviews available.</p>)}
+
+                        </div>
+                    </div>
+
+                </>
             )}
-
-            <ReviewFormCard movie_id={id} />
-            <div className="Reviews">
-                <div className="container">
-
-
-                    {movie && movie.reviews && movie.reviews.length > 0 ? (
-                        movie.reviews.map(review => <ReviewCard key={review.id} review={review} />)
-                    ) : (
-                        <p>No reviews available.</p>)}
-
-                </div>
-            </div>
         </>
     )
 

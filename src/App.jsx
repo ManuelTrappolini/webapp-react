@@ -8,7 +8,7 @@ import { useState } from "react"
 
 function App() {
 
-  const { loading, setLoading } = useState(false)
+  const [loading, setLoading] = useState(false)
   const values = {
     loading,
     setLoading

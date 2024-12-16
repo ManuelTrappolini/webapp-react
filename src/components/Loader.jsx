@@ -1,11 +1,19 @@
-import 'ldrs/ring'
+import 'ldrs/zoomies'
+
 
 
 export default function Loader() {
     return (
         <>
-            <div>
-                <l-ring size="40" stroke="5" bg-opacity="0" speed="2" color="black"></l-ring>
+            <div className='loader'>
+
+                <l-zoomies
+                    size="80"
+                    stroke="5"
+                    bg-opacity="0.1"
+                    speed="1.4"
+                    color="black"
+                ></l-zoomies>
             </div>
         </>
     )

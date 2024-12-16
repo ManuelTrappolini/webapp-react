@@ -1,8 +1,13 @@
 import MovieCard from "../components/Cards/MoviesCard"
 import Banner from "../components/Banner"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import GlobalContext from "../context/GlobalContext"
+import Loader from '../components/Loader'
+
 
 export default function HomePage() {
+
+    const { loading, setLoading } = useContext(GlobalContext)
 
     /*     const movies = [
 
@@ -78,12 +83,19 @@ export default function HomePage() {
 
 
     function fetchData(api_movies_url = 'http://localhost:3002/movies') {
+
+
+        setLoading(true)
+
+
         fetch(api_movies_url)
             .then(res => res.json())
             .then(data => {
 
                 console.log(data);
                 setMovies(data.movies)
+
+                setLoading(false)
             })
     }
 
@@ -96,17 +108,25 @@ export default function HomePage() {
 
     return (
         <>
-            <Banner title="Homepage" subtitle="The Best Community of Movies in the World " />
-            <div className="homepage">
-                <div className="container">
+            {loading ? <Loader /> : (
+                <>
+                    <Banner title="Homepage" subtitle="The Best Community of Movies in the World " />
+                    <div className="homepage">
+                        <div className="container">
 
 
-                    {
-                        movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
-                    }
+                            {
+                                movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+                            }
 
-                </div>
-            </div>
+                        </div>
+                    </div>
+                </>
+            )
+            }
+
         </>
+
+
     )
 }
