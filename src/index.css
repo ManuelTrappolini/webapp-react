@@ -1,5 +1,6 @@
 * {
   font-style: italic;
+
 }
 
 header {
@@ -12,8 +13,12 @@ header {
 
 }
 
+.row {
+  justify-content: space-around;
+}
+
 .card-body {
-  background-color: rgb(176, 176, 206);
+
   color: white;
 }
 
@@ -37,6 +42,7 @@ footer {
   }
 
 }
+
 
 .description {
   font-size: 1.2rem;

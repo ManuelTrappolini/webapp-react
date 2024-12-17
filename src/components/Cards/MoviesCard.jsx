@@ -4,7 +4,7 @@ export default function MovieCard({ movie }) {
 
     return (
 
-        <div className="card mb-3">
+        <div className="card mb-3  col-5 ">
             <div className="card-body">
                 <h3>{movie.title}</h3>
                 <h5>By {movie.director}</h5>

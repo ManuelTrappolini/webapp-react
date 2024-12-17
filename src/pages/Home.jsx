@@ -113,12 +113,14 @@ export default function HomePage() {
                     <Banner title="Homepage" subtitle="The Best Community of Movies in the World " />
                     <div className="homepage">
                         <div className="container">
+                            <div className="row">
 
 
-                            {
-                                movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
-                            }
+                                {
+                                    movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+                                }
 
+                            </div>
                         </div>
                     </div>
                 </>

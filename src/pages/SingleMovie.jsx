@@ -109,13 +109,13 @@ export default function SingleMovie() {
                     <ReviewFormCard movie_id={id} />
                     <div className="Reviews">
                         <div className="container">
+                            <div className="row">
 
-
-                            {movie && movie.reviews && movie.reviews.length > 0 ? (
-                                movie.reviews.map(review => <ReviewCard key={review.id} review={review} />)
-                            ) : (
-                                <p>No reviews available.</p>)}
-
+                                {movie && movie.reviews && movie.reviews.length > 0 ? (
+                                    movie.reviews.map(review => <ReviewCard key={review.id} review={review} />)
+                                ) : (
+                                    <p>No reviews available.</p>)}
+                            </div>
                         </div>
                     </div>
 
